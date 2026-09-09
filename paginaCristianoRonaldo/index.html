@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cristiano Ronaldo | Leyenda del Fútbol</title>
+  <meta name="description" content="Sitio informativo sobre la biografía, trayectoria, estadísticas y galería de Cristiano Ronaldo, uno de los futbolistas más importantes de la historia.">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="header-contenido contenedor">
+      <div class="marca">
+        <span class="marca-numero">7</span>
+        <div>
+          <p class="marca-titulo">Cristiano Ronaldo</p>
+          <p class="marca-subtitulo">Delantero profesional · Portugal</p>
+        </div>
+      </div>
+
+      <button class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-principal">
+        <span class="sr-only">Abrir menú de navegación</span>
+        <span class="nav-toggle-barra"></span>
+        <span class="nav-toggle-barra"></span>
+        <span class="nav-toggle-barra"></span>
+      </button>
+
+      <nav class="nav-principal" id="nav-principal" aria-label="Navegación principal">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li><a href="#biografia">Biografía</a></li>
+          <li><a href="#trayectoria">Trayectoria</a></li>
+          <li><a href="#estadisticas">Estadísticas</a></li>
+          <li><a href="#galeria">Galería</a></li>
+          <li><a href="#enlaces">Enlaces</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido-principal">
+
+    <!-- ===================== INICIO ===================== -->
+    <section id="inicio" class="hero" aria-labelledby="hero-titulo">
+      <div class="contenedor hero-grid">
+        <div class="hero-texto">
+          <p class="etiqueta">Bienvenido</p>
+          <h1 id="hero-titulo">Cristiano Ronaldo dos Santos Aveiro</h1>
+          <p class="hero-descripcion">
+            Futbolista portugués nacido en Funchal (Madeira) el 5 de febrero de 1985.
+            Considerado uno de los mejores jugadores de la historia del fútbol, es
+            máximo goleador histórico de la Liga de Campeones de la UEFA y de la
+            selección de Portugal, capitán de su selección y ganador de cinco Balones
+            de Oro. Este sitio resume su biografía, trayectoria deportiva,
+            estadísticas y una pequeña galería de imágenes.
+          </p>
+          <div class="hero-acciones">
+            <a class="boton boton-primario" href="#biografia">Ver biografía</a>
+            <a class="boton boton-secundario" href="#estadisticas">Ver estadísticas</a>
+          </div>
+        </div>
+        <figure class="hero-imagen">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/b/be/Cristiano_Ronaldo%2C_2023.jpg"
+            alt="Cristiano Ronaldo con la camiseta del Al Nassr FC durante un partido contra el Persepolis F.C. en el Estadio Azadi, Teherán, septiembre de 2023.">
+          <figcaption>Cristiano Ronaldo jugando para el Al Nassr FC, septiembre de 2023.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ===================== BIOGRAFÍA ===================== -->
+    <section id="biografia" class="seccion" aria-labelledby="biografia-titulo">
+      <div class="contenedor">
+        <h2 id="biografia-titulo">Biografía</h2>
+        <div class="biografia-contenido">
+          <article class="biografia-texto">
+            <p>
+              Cristiano Ronaldo comenzó a jugar al fútbol en clubes de su isla natal,
+              Madeira, antes de incorporarse a la cantera del <strong>Sporting CP</strong>,
+              donde debutó como profesional en 2002. Su talento llamó la atención del
+              <strong>Manchester United</strong>, club al que se trasladó en 2003 y en el
+              que se consagró como una de las estrellas del fútbol mundial, ganando su
+              primer Balón de Oro en 2008 tras conquistar la Liga de Campeones.
+            </p>
+            <p>
+              En 2009 fichó por el <strong>Real Madrid</strong> mediante un traspaso que
+              en su momento fue récord mundial. En sus nueve temporadas en el club
+              blanco se convirtió en el máximo goleador histórico de la entidad y de la
+              Liga de Campeones, levantando el trofeo en cuatro ocasiones adicionales.
+              Posteriormente jugó en la <strong>Juventus</strong> (2018-2021), regresó
+              brevemente al <strong>Manchester United</strong> (2021-2022) y desde 2023
+              milita en el <strong>Al Nassr FC</strong> de la Liga Profesional Saudí.
+            </p>
+            <p>
+              Con la <strong>selección de Portugal</strong>, de la que es capitán, es el
+              futbolista con más partidos internacionales disputados y el máximo
+              goleador histórico del fútbol masculino a nivel de selecciones. Con
+              Portugal conquistó la Eurocopa 2016 y la Liga de Naciones de la UEFA.
+              Fuera de las canchas, es conocido por su disciplina física, su fundación
+              benéfica y su influencia como una de las figuras deportivas más
+              seguidas del mundo.
+            </p>
+          </article>
+
+          <aside class="ficha-tecnica" aria-labelledby="ficha-titulo">
+            <h3 id="ficha-titulo">Ficha técnica</h3>
+            <dl>
+              <div><dt>Nombre completo</dt><dd>Cristiano Ronaldo dos Santos Aveiro</dd></div>
+              <div><dt>Nacimiento</dt><dd>5 de febrero de 1985, Funchal, Madeira (Portugal)</dd></div>
+              <div><dt>Altura</dt><dd>1,87 m</dd></div>
+              <div><dt>Posición</dt><dd>Delantero</dd></div>
+              <div><dt>Club actual</dt><dd>Al Nassr FC (Arabia Saudita)</dd></div>
+              <div><dt>Dorsal</dt><dd>7</dd></div>
+              <div><dt>Selección</dt><dd>Portugal (capitán)</dd></div>
+            </dl>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== TRAYECTORIA (línea de tiempo interactiva) ===================== -->
+    <section id="trayectoria" class="seccion seccion-alterna" aria-labelledby="trayectoria-titulo">
+      <div class="contenedor">
+        <h2 id="trayectoria-titulo">Trayectoria deportiva</h2>
+        <p class="seccion-intro">
+          Selecciona una etapa de la línea de tiempo para ver más detalles sobre su
+          paso por cada club y por la selección de Portugal.
+        </p>
+
+        <div class="timeline" id="timeline">
+          <ul class="timeline-lista" id="timeline-lista">
+            <li>
+              <button type="button" class="timeline-item" data-target="t1" aria-controls="t1" aria-expanded="false">
+                <span class="timeline-anio">2002 – 2003</span>
+                <span class="timeline-club">Sporting CP</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="timeline-item" data-target="t2" aria-controls="t2" aria-expanded="false">
+                <span class="timeline-anio">2003 – 2009</span>
+                <span class="timeline-club">Manchester United</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="timeline-item" data-target="t3" aria-controls="t3" aria-expanded="false">
+                <span class="timeline-anio">2009 – 2018</span>
+                <span class="timeline-club">Real Madrid</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="timeline-item" data-target="t4" aria-controls="t4" aria-expanded="false">
+                <span class="timeline-anio">2018 – 2021</span>
+                <span class="timeline-club">Juventus</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="timeline-item" data-target="t5" aria-controls="t5" aria-expanded="false">
+                <span class="timeline-anio">2021 – 2022</span>
+                <span class="timeline-club">Manchester United</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="timeline-item" data-target="t6" aria-controls="t6" aria-expanded="false">
+                <span class="timeline-anio">2023 – actualidad</span>
+                <span class="timeline-club">Al Nassr FC</span>
+              </button>
+            </li>
+            <li>
+              <button type="button" class="timeline-item" data-target="t7" aria-controls="t7" aria-expanded="false">
+                <span class="timeline-anio">2003 – actualidad</span>
+                <span class="timeline-club">Selección de Portugal</span>
+              </button>
+            </li>
+          </ul>
+
+          <div class="timeline-detalle" id="timeline-detalle" role="region" aria-label="Detalle de la etapa seleccionada" aria-live="polite">
+            <div class="timeline-detalle-contenido" id="t1" hidden>
+              <h3>Sporting CP (2002 – 2003)</h3>
+              <p>Debutó como futbolista profesional en la cantera del Sporting Clube de Portugal, club que lo formó y desde el que dio el salto al fútbol inglés.</p>
+            </div>
+            <div class="timeline-detalle-contenido" id="t2" hidden>
+              <h3>Manchester United (2003 – 2009)</h3>
+              <p>Se convirtió en una superestrella mundial. Ganó su primer Balón de Oro en 2008 y conquistó su primera Liga de Campeones de la UEFA con el club inglés.</p>
+            </div>
+            <div class="timeline-detalle-contenido" id="t3" hidden>
+              <h3>Real Madrid (2009 – 2018)</h3>
+              <p>Llegó mediante un traspaso récord y se transformó en el máximo goleador histórico del club, ganando cuatro Ligas de Campeones adicionales y varios Balones de Oro.</p>
+            </div>
+            <div class="timeline-detalle-contenido" id="t4" hidden>
+              <h3>Juventus (2018 – 2021)</h3>
+              <p>Jugó tres temporadas en la Serie A italiana, aportando su experiencia goleadora y ayudando al club a conquistar títulos domésticos.</p>
+            </div>
+            <div class="timeline-detalle-contenido" id="t5" hidden>
+              <h3>Manchester United (2021 – 2022)</h3>
+              <p>Regresó al club que lo lanzó a la fama internacional, cerrando un ciclo emotivo con la afición inglesa.</p>
+            </div>
+            <div class="timeline-detalle-contenido" id="t6" hidden>
+              <h3>Al Nassr FC (2023 – actualidad)</h3>
+              <p>Se incorporó a la Liga Profesional Saudí, aportando visibilidad global al fútbol de Arabia Saudita y manteniendo un elevado nivel goleador.</p>
+            </div>
+            <div class="timeline-detalle-contenido" id="t7" hidden>
+              <h3>Selección de Portugal (2003 – actualidad)</h3>
+              <p>Es el jugador con más partidos internacionales y el máximo goleador histórico del fútbol masculino de selecciones. Capitán del equipo, campeón de la Eurocopa 2016 y de la Liga de Naciones de la UEFA.</p>
+            </div>
+            <p class="timeline-placeholder" id="timeline-placeholder">
+              Haz clic en cualquier etapa de la línea de tiempo para ver la información aquí.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ESTADÍSTICAS ===================== -->
+    <section id="estadisticas" class="seccion" aria-labelledby="estadisticas-titulo">
+      <div class="contenedor">
+        <h2 id="estadisticas-titulo">Estadísticas destacadas</h2>
+        <p class="seccion-intro">
+          Cifras aproximadas y ampliamente reportadas por fuentes deportivas; al
+          seguir en activo, algunos totales continúan aumentando.
+        </p>
+
+        <ul class="stats-grid" id="stats-grid">
+          <li class="stat-card">
+            <p class="stat-numero" data-valor="5">0</p>
+            <p class="stat-etiqueta">Balones de Oro</p>
+          </li>
+          <li class="stat-card">
+            <p class="stat-numero" data-valor="5">0</p>
+            <p class="stat-etiqueta">Ligas de Campeones (UEFA)</p>
+          </li>
+          <li class="stat-card">
+            <p class="stat-numero" data-valor="200" data-sufijo="+">0</p>
+            <p class="stat-etiqueta">Partidos con Portugal</p>
+          </li>
+          <li class="stat-card">
+            <p class="stat-numero" data-valor="140" data-sufijo="+">0</p>
+            <p class="stat-etiqueta">Goles con Portugal</p>
+          </li>
+          <li class="stat-card">
+            <p class="stat-numero" data-valor="900" data-sufijo="+">0</p>
+            <p class="stat-etiqueta">Goles oficiales en clubes</p>
+          </li>
+          <li class="stat-card">
+            <p class="stat-numero" data-valor="1" data-sufijo="">0</p>
+            <p class="stat-etiqueta">Eurocopa ganada (2016)</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ===================== GALERÍA ===================== -->
+    <section id="galeria" class="seccion seccion-alterna" aria-labelledby="galeria-titulo">
+      <div class="contenedor">
+        <h2 id="galeria-titulo">Galería</h2>
+        <p class="seccion-intro">
+          Imágenes reales alojadas en Wikimedia Commons. Haz clic en cualquiera para
+          ampliarla.
+        </p>
+
+        <div class="galeria-grid" id="galeria-grid">
+          <figure class="galeria-item">
+            <button type="button" class="galeria-boton" data-full="https://upload.wikimedia.org/wikipedia/commons/2/2d/Cristiano_Ronaldo_-_October_12%2C_2010.jpg">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/2/2d/Cristiano_Ronaldo_-_October_12%2C_2010.jpg"
+                alt="Retrato de Cristiano Ronaldo tomado el 12 de octubre de 2010, durante su etapa como jugador del Real Madrid.">
+            </button>
+            <figcaption>Cristiano Ronaldo en octubre de 2010, en su etapa en el Real Madrid.</figcaption>
+          </figure>
+
+          <figure class="galeria-item">
+            <button type="button" class="galeria-boton" data-full="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/8/8c/Cristiano_Ronaldo_2018.jpg"
+                alt="Cristiano Ronaldo con la camiseta de la selección de Portugal durante el partido ante España en el Mundial de Rusia 2018, el 15 de junio de 2018.">
+            </button>
+            <figcaption>Cristiano Ronaldo con Portugal ante España, Mundial de Rusia 2018.</figcaption>
+          </figure>
+
+          <figure class="galeria-item">
+            <button type="button" class="galeria-boton" data-full="https://upload.wikimedia.org/wikipedia/commons/b/be/Cristiano_Ronaldo%2C_2023.jpg">
+              <img
+                src="https://upload.wikimedia.org/wikipedia/commons/b/be/Cristiano_Ronaldo%2C_2023.jpg"
+                alt="Cristiano Ronaldo jugando para el Al Nassr FC contra el Persepolis F.C. en el Estadio Azadi de Teherán, septiembre de 2023.">
+            </button>
+            <figcaption>Cristiano Ronaldo con el Al Nassr FC, septiembre de 2023.</figcaption>
+          </figure>
+        </div>
+
+        <!-- Visor modal de la galería -->
+        <div class="lightbox" id="lightbox" hidden>
+          <div class="lightbox-fondo" id="lightbox-fondo"></div>
+          <div class="lightbox-contenido" role="dialog" aria-modal="true" aria-label="Imagen ampliada">
+            <button type="button" class="lightbox-cerrar" id="lightbox-cerrar" aria-label="Cerrar imagen ampliada">✕</button>
+            <img src="" alt="" id="lightbox-imagen">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ENLACES ===================== -->
+    <section id="enlaces" class="seccion" aria-labelledby="enlaces-titulo">
+      <div class="contenedor">
+        <h2 id="enlaces-titulo">Enlaces de interés</h2>
+        <ul class="enlaces-lista">
+          <li>
+            <a href="https://es.wikipedia.org/wiki/Cristiano_Ronaldo" target="_blank" rel="noopener noreferrer">
+              Wikipedia — Cristiano Ronaldo
+              <span class="sr-only">(abre en nueva ventana)</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.cristianoronaldo.com/" target="_blank" rel="noopener noreferrer">
+              Sitio oficial CR7
+              <span class="sr-only">(abre en nueva ventana)</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.instagram.com/cristiano/" target="_blank" rel="noopener noreferrer">
+              Instagram oficial
+              <span class="sr-only">(abre en nueva ventana)</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.uefa.com/" target="_blank" rel="noopener noreferrer">
+              UEFA — Federación Europea de Fútbol
+              <span class="sr-only">(abre en nueva ventana)</span>
+            </a>
+          </li>
+          <li>
+            <a href="https://www.fpf.pt/" target="_blank" rel="noopener noreferrer">
+              Federação Portuguesa de Futebol
+              <span class="sr-only">(abre en nueva ventana)</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="contenedor footer-contenido">
+      <p>
+        Sitio educativo desarrollado con HTML, CSS y JavaScript vanilla, sin
+        frameworks ni backend, con fines de práctica académica.
+      </p>
+      <p>
+        Fuente de datos e imágenes: Wikipedia y Wikimedia Commons.
+      </p>
+      <p>&copy; <span id="anio-actual"></span> — Sitio no oficial sobre Cristiano Ronaldo.</p>
+      <a class="volver-arriba" href="#inicio">Volver arriba ↑</a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

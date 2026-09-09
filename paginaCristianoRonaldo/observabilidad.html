@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Observabilidad | Cristiano Ronaldo</title>
+  <meta name="description" content="Panel local de observabilidad del sitio: rendimiento, errores, interacciones y entorno, almacenado únicamente en el navegador, sin backend ni servicios externos.">
+  <link rel="stylesheet" href="observabilidad.css">
+</head>
+<body>
+
+  <a class="skip-link" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <header class="site-header">
+    <div class="header-contenido contenedor">
+      <div class="marca">
+        <span class="marca-numero">7</span>
+        <div>
+          <p class="marca-titulo">Observabilidad local</p>
+          <p class="marca-subtitulo">Cristiano Ronaldo · Panel sin backend</p>
+        </div>
+      </div>
+      <nav aria-label="Navegación del panel">
+        <a href="index.html">← Volver al sitio</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="contenido-principal">
+
+    <!-- ===================== INTRODUCCIÓN Y CONTROLES ===================== -->
+    <section class="seccion" aria-labelledby="intro-titulo">
+      <div class="contenedor">
+        <h1 id="intro-titulo">Panel de observabilidad</h1>
+        <p class="seccion-intro">
+          Este panel muestra las métricas y eventos que el propio sitio registra en el
+          <code>localStorage</code> de este navegador, bajo claves con el prefijo
+          <code>cr7-observability</code>. Ningún dato sale de este dispositivo: no hay
+          backend ni servicios externos involucrados.
+        </p>
+
+        <div class="barra-herramientas" role="toolbar" aria-label="Acciones del panel de observabilidad">
+          <button type="button" id="btn-actualizar" class="boton boton-primario">
+            Actualizar datos
+          </button>
+          <button type="button" id="btn-demo" class="boton boton-secundario">
+            Generar evento de demostración
+          </button>
+          <button type="button" id="btn-descargar" class="boton boton-secundario">
+            Descargar snapshot (JSON)
+          </button>
+          <button type="button" id="btn-limpiar" class="boton boton-peligro">
+            Limpiar almacenamiento
+          </button>
+        </div>
+
+        <p class="estado-mensaje" id="estado-mensaje" role="status" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ===================== RESUMEN ===================== -->
+    <section class="seccion seccion-alterna" aria-labelledby="resumen-titulo">
+      <div class="contenedor">
+        <h2 id="resumen-titulo">Resumen</h2>
+        <dl class="resumen-grid" id="resumen-grid" aria-live="polite">
+          <!-- Rellenado dinámicamente por observabilidad.js -->
+        </dl>
+      </div>
+    </section>
+
+    <!-- ===================== ENTORNO ===================== -->
+    <section class="seccion" aria-labelledby="entorno-titulo">
+      <div class="contenedor">
+        <h2 id="entorno-titulo">Entorno</h2>
+        <p class="seccion-intro">
+          Viewport, tipo de conexión y soporte de APIs del navegador que estás usando
+          ahora mismo.
+        </p>
+        <div class="tabla-scroll">
+          <table class="tabla-datos" id="tabla-entorno">
+            <caption class="sr-only">Datos del entorno del navegador</caption>
+            <tbody id="tabla-entorno-cuerpo"></tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== NAVEGACIÓN Y CARGA ===================== -->
+    <section class="seccion seccion-alterna" aria-labelledby="navegacion-titulo">
+      <div class="contenedor">
+        <h2 id="navegacion-titulo">Tiempos de navegación y carga</h2>
+        <p class="seccion-intro">
+          Métricas capturadas con la Performance API en cada carga de página (la más
+          reciente aparece primero).
+        </p>
+        <div class="tabla-scroll">
+          <table class="tabla-datos" id="tabla-navegacion">
+            <caption class="sr-only">Historial de tiempos de carga de página</caption>
+            <thead>
+              <tr>
+                <th scope="col">Fecha y hora</th>
+                <th scope="col">Página</th>
+                <th scope="col">DOM listo (ms)</th>
+                <th scope="col">Carga completa (ms)</th>
+                <th scope="col">Primer contenido (ms)</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-navegacion-cuerpo"></tbody>
+          </table>
+        </div>
+        <p class="estado-vacio" id="navegacion-vacio" hidden>
+          Aún no se registraron cargas de página. Recarga <a href="index.html">la página principal</a> o esta misma para generar una.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== ERRORES DE JAVASCRIPT ===================== -->
+    <section class="seccion" aria-labelledby="errores-titulo">
+      <div class="contenedor">
+        <h2 id="errores-titulo">Errores de JavaScript</h2>
+        <p class="seccion-intro">
+          Excepciones no controladas y promesas rechazadas detectadas en cualquier
+          página del sitio.
+        </p>
+        <div class="tabla-scroll">
+          <table class="tabla-datos" id="tabla-errores">
+            <caption class="sr-only">Errores de JavaScript registrados</caption>
+            <thead>
+              <tr>
+                <th scope="col">Fecha y hora</th>
+                <th scope="col">Tipo</th>
+                <th scope="col">Mensaje</th>
+                <th scope="col">Ubicación</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-errores-cuerpo"></tbody>
+          </table>
+        </div>
+        <p class="estado-vacio" id="errores-vacio" hidden>
+          No se registraron errores de JavaScript. ¡Buena señal! Usa «Generar evento de
+          demostración» para ver cómo se vería uno.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== ERRORES DE RECURSOS ===================== -->
+    <section class="seccion seccion-alterna" aria-labelledby="recursos-titulo">
+      <div class="contenedor">
+        <h2 id="recursos-titulo">Errores de carga de recursos</h2>
+        <p class="seccion-intro">
+          Imágenes, scripts u hojas de estilo que no pudieron cargarse correctamente.
+        </p>
+        <div class="tabla-scroll">
+          <table class="tabla-datos" id="tabla-recursos">
+            <caption class="sr-only">Errores de carga de recursos registrados</caption>
+            <thead>
+              <tr>
+                <th scope="col">Fecha y hora</th>
+                <th scope="col">Elemento</th>
+                <th scope="col">Origen</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-recursos-cuerpo"></tbody>
+          </table>
+        </div>
+        <p class="estado-vacio" id="recursos-vacio" hidden>
+          No se registraron errores de recursos.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== INTERACCIONES ===================== -->
+    <section class="seccion" aria-labelledby="interacciones-titulo">
+      <div class="contenedor">
+        <h2 id="interacciones-titulo">Interacciones</h2>
+        <p class="seccion-intro">
+          Clics en enlaces, botones y otros controles del sitio (incluidos los de este
+          mismo panel).
+        </p>
+        <div class="tabla-scroll">
+          <table class="tabla-datos" id="tabla-interacciones">
+            <caption class="sr-only">Interacciones registradas</caption>
+            <thead>
+              <tr>
+                <th scope="col">Fecha y hora</th>
+                <th scope="col">Página</th>
+                <th scope="col">Elemento</th>
+                <th scope="col">Texto o etiqueta</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-interacciones-cuerpo"></tbody>
+          </table>
+        </div>
+        <p class="estado-vacio" id="interacciones-vacio" hidden>
+          Aún no se registraron interacciones. Haz clic en cualquier botón o enlace para
+          generar una.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== VISIBILIDAD ===================== -->
+    <section class="seccion seccion-alterna" aria-labelledby="visibilidad-titulo">
+      <div class="contenedor">
+        <h2 id="visibilidad-titulo">Cambios de visibilidad</h2>
+        <p class="seccion-intro">
+          Momentos en los que esta pestaña pasó a segundo plano o volvió a primer plano.
+        </p>
+        <div class="tabla-scroll">
+          <table class="tabla-datos" id="tabla-visibilidad">
+            <caption class="sr-only">Cambios de visibilidad registrados</caption>
+            <thead>
+              <tr>
+                <th scope="col">Fecha y hora</th>
+                <th scope="col">Página</th>
+                <th scope="col">Estado</th>
+              </tr>
+            </thead>
+            <tbody id="tabla-visibilidad-cuerpo"></tbody>
+          </table>
+        </div>
+        <p class="estado-vacio" id="visibilidad-vacio" hidden>
+          Aún no se registraron cambios de visibilidad. Cambia de pestaña o minimiza la
+          ventana para generar uno.
+        </p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="contenedor footer-contenido">
+      <p>
+        Todos los datos de este panel se guardan únicamente en el
+        <code>localStorage</code> de este navegador. No se envían a ningún servidor ni
+        servicio externo.
+      </p>
+      <p>&copy; <span id="anio-actual"></span> — Sitio no oficial sobre Cristiano Ronaldo.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="observabilidad.js"></script>
+</body>
+</html>
