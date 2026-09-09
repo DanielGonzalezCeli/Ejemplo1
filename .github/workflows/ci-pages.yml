@@ -1,0 +1,59 @@
+name: CI y despliegue a GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+# Permisos mínimos por defecto; el job de despliegue los eleva
+# puntualmente a lo necesario para publicar en GitHub Pages.
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: Pruebas básicas
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Ejecutar pruebas básicas (sintaxis JS, HTML, CSS y recursos)
+        working-directory: paginaCristianoRonaldo
+        run: node tests/validate.js
+
+  deploy:
+    name: Publicar en GitHub Pages
+    needs: test
+    # Solo se despliega en push directo a main (no en pull requests
+    # ni en forks), y únicamente si las pruebas básicas pasaron.
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Descargar código
+        uses: actions/checkout@v4
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Subir el sitio como artefacto de Pages
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: paginaCristianoRonaldo
+
+      - name: Desplegar en GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
